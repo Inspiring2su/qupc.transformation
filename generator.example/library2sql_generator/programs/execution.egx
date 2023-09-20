@@ -1,0 +1,6 @@
+rule lib2sql
+	transform lib:Library {
+	//guard: lib.books.size() > 1
+	template: "library2sql.egl"
+	target: "libraryInsertion.sql"
+}

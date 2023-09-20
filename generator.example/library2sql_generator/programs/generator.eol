@@ -1,0 +1,29 @@
+var l = Library.createInstance();
+
+var m = Book.createInstance();
+m.title = "Software Engineering";
+m.year = 2010;
+
+var a = Author.createInstance();
+a.name = "Ian Sommerville";
+
+m.authors.add(a);
+
+l.books.add(m);
+
+var m2 = Book.createInstance();
+m2.title = "Agile Testing";
+m2.year = 2009;
+
+var a2 = Author.createInstance();
+a2.name = "Lisa Crispin";
+
+var a3 = Author.createInstance();
+a3.name = "Janet Gregory";
+
+m2.authors.add(a2);
+m2.authors.add(a3);
+
+l.books.add(m2);
+
+

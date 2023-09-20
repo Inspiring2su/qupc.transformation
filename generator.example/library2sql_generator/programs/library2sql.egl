@@ -1,0 +1,4 @@
+[% for(b in lib.books) { %]
+INSERT INTO Book( 'title', 'year', 'authors') VALUES
+('[%=b.title%]', [%=b.year%], '[%=b.authors.collect(e | e.name).concat(", ")%]');
+[%}%]

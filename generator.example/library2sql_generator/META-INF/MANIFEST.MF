@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test_project
+Bundle-SymbolicName: test_project
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: test.project
+Bundle-RequiredExecutionEnvironment: JavaSE-17
