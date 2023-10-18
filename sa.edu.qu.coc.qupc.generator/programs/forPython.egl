@@ -1,0 +1,41 @@
+import json
+from [%=_class.name%] import *
+
+TEST_KEY:str = "Test "
+INPUT_KEY:str = "Inputs"
+EX_OUTPUT_KEY:str = "Expected output"
+ACT_OUTPUT_KEY:str = "Actual output"
+STATUS_KEY:str = "Status"
+PASSED_KEY:str = "PASSED"
+FAILED_KEY:str = "FAILED"
+JSONFILE_NAME_KEY:str = "Main.output.json"
+
+def main():
+	[%= _class.eAnnotations.first.details.first().key%] = [%= _class.eAnnotations.first.details.first().value%]
+	[%= _class.eAnnotations.first.details.second().key%] = [%= _class.eAnnotations.first.details.second().value%]
+           
+
+    index:int = 0
+    report = {}
+    for test in tests:
+        data = {}
+        data[INPUT_KEY] = test
+        data[EX_OUTPUT_KEY] = expected[index]
+        obj = [%= _class.name%]()
+        [% if (_class.eAllOperations.first().eParameters.size() >= 2) {%]
+        res = obj.[%= _class.eAllOperations.first().name%]([%= _class.eAllOperations.first().eParameters.collect(e|e.name).concat('[index],')%])
+        [% } else { %]
+        res = obj.[%= _class.eAllOperations.first().name%]([%= _class.eAllOperations.first().eParameters.first.name + '[index]'%])              
+        [% } %]
+        data[ACT_OUTPUT_KEY] = res              
+        res = abs(res - expected[index]) <= 1.0E-9
+        if res == True: data[STATUS_KEY] = PASSED_KEY
+        else: data[STATUS_KEY] = FAILED_KEY
+        index = index + 1
+        report[TEST_KEY + str(index)] = data
+    #end for
+    jsonObj = json.dumps(report)
+    with open(JSONFILE_NAME_KEY, "w") as file:
+        file.write(jsonObj)
+
+if __name__ == "__main__": main()
