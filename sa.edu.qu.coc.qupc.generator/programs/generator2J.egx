@@ -1,0 +1,5 @@
+rule challenge2Java
+	transform _class:EClass {
+	template: "forJavaMarks.egl"
+	target: "Main.java"
+}

@@ -1,0 +1,24 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+public class Main {
+
+	public static final String TEST_KEY = "Test ";
+	public static final String INPUT_KEY = "Inputs";
+	public static final String EX_OUTPUT_KEY = "Expected output";
+	public static final String ACT_OUTPUT_KEY = "Actual output";
+	public static final String STATUS_KEY = "Status";
+	public static final String PASSED_KEY = "PASSED";
+	public static final String FAILED_KEY = "FAILED";
+	public static final String JSONFILE_NAME_KEY = "Main.output.json";
+	
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) {
+		[% for(k in _class.eAnnotations.first.details) {%]
+			[% var strs = k.key.split(':'); %]
+			[%= strs[1]+ ' ' + strs[0] + '=' + (k.value.replace("<","{").replace(">","}")) + ';' %]
+		[% } %]
+	}
+}

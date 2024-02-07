@@ -1,8 +1,0 @@
-@namespace(uri="sa/edu/qu/coc/qupc/generator/challenge", prefix="challenge")
-package challenge;
-
-@tests("input:String[]"="['aabbccdd', 'aaabbaaac', 'abba', 'aabbaaabbbaaaabbbbaaaaaccccc', 'string', '1', 'abccbabbaavbbaac']", "output:double[]"="[2.000000000, 2.250000000, 1.333333333, 3.500000000, 1.000000000, 1.000000000, 1.454545455]")
-class Segment {
-	op double average(String s);
-}
-
