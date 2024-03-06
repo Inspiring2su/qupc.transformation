@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="triple_digit" nsURI="http://www.example.org/triple_digit" nsPrefix="triple_digit">
+  <eClassifiers xsi:type="ecore:EClass" name="TripleDigit">
+    <eAnnotations source="tests">
+      <details key="input:Int[][]" value="&lt; &lt; 2, 2, 8 >, &lt; 2, 3, 8 >, &lt; 22, 33, 44 >, &lt; 3, 5, 7 >, &lt; 4, 7, 32 >, &lt; 3, 2, 50 >, &lt; 12, 6, 470 >, &lt; 999999999, 128, 1000000  >>"/>
+      <details key="output:Srting[]" value="&lt; &quot;0.500&quot;, &quot;001.000&quot;, &quot;004.534&quot;, &quot;034.714&quot;, &quot;512.000&quot;, &quot;0.180&quot;, &quot;353.157&quot;, &quot;000.000&quot; >"/>
+    </eAnnotations>
+    <eOperations name="calculation">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="l" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>
